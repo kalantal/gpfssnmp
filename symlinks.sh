@@ -2,6 +2,16 @@
 set -e
 #aborts on error
 
+#This script exists to link or re-link the libraries for net-snmp and GPFS
+#After a new installation, these will not be linked, or after an update of
+#net-snmp. It checks for the existence of a valid symbolic link, and then
+#creates one if it is not.
+
+#Logs saved to /var/tmp/symlinks.log
+
+#Wrapped for reuse and logging
+function symLinks() {
+
 #Makes sure net-snmp is installed
 if [ -f /etc/redhat-release ]; then
 		if [ "$(rpm -qa net-snmp 2>/dev/null)" == "" ]; then
@@ -67,6 +77,11 @@ ln -s libwrap.so.0 libwrap.so
 fi
 #Verify
 ls -l libwrap.so
+}
+
+symLinks 2>&1 | tee /var/tmp/symlinks.log
+
+#function symLinksForced() {
 
 #Alternatively, these are the raw commands
 #if you wanted to force these actions
@@ -96,3 +111,6 @@ ls -l libwrap.so
 #ls -l libnetsnmpagent.so
 #ls -l libnetsnmpmibs.so
 #ls -l libwrap.so
+}
+
+#symLinksForced 2>&1 | tee /var/tmp/symlinks.log
