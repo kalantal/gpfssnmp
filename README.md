@@ -1,9 +1,7 @@
 ========================
  GPFS SNMP Scripts
 ========================
-
 These scripts are tools used in the GPFS SNMP project
-
 ========================
 
 1) symlinks.sh
