@@ -10,6 +10,7 @@ These scripts are tools used in the GPFS SNMP project
  
    Verifies the validity of symbolic links for net-snmp and what GPFS is expecting
 
+========================
 
 2) forcedsymlinks.sh
 
