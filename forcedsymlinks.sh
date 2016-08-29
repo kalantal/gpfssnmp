@@ -11,9 +11,9 @@ set -e
 function symLinksForced() {
   
 if [ -f /etc/redhat-release ]; then
-		if [ "$(rpm -qa net-snmp 2>/dev/null)" == "" ]; then
-			sudo yum -y install net-snmp
-		fi
+	if [ "$(rpm -qa net-snmp 2>/dev/null)" == "" ]; then
+		sudo yum -y install net-snmp
+	fi
 fi
 
 #Change to the proper directory
