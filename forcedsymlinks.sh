@@ -47,4 +47,4 @@ ls -l libnetsnmpmibs.so
 ls -l libwrap.so
 }
 
-#symLinksForced 2>&1 | tee /var/tmp/symlinks.log
+symLinksForced 2>&1 | tee /var/tmp/symlinks.log
