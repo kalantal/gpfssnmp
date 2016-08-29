@@ -9,6 +9,15 @@ set -e
 
 #Wrapped for reuse and logging
 function symLinksForced() {
+  
+if [ -f /etc/redhat-release ]; then
+		if [ "$(rpm -qa net-snmp 2>/dev/null)" == "" ]; then
+			sudo yum -y install net-snmp
+		fi
+fi
+
+#Change to the proper directory
+cd /usr/lib64
 
 #remove existing links
 rm libcrypto.so -f
